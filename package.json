@@ -1,8 +1,8 @@
 {
-  "name": "roolup",
+  "name": "prfinotification",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "repository": "https://github.com/felek000/notification",
+  "description": "yet another notification lib",
   "scripts": {
     "tests": "jest",
     "build": "rollup --config --environment NODE_ENV:production",
@@ -10,7 +10,7 @@
     "doc": "jsdoc src\\ --destination ./doc",
     "server": "http-server ./"
   },
-  "author": "",
+  "author": "https://github.com/felek000",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
