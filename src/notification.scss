@@ -1,0 +1,33 @@
+@import "settings";
+.notification {
+  position: absolute;
+  z-index: 9999;
+  display: flex;
+  padding: $padding;
+  will-change: auto;
+  margin: $margin;
+  animation-delay: 50ms;
+  border-radius: $borderRadius;
+  transition: 200ms ease-in-out;
+  @at-root #{&}-text{
+    margin: 0;
+  }
+  @at-root #{&}--success{
+    background: $success;
+  }
+  @at-root #{&}--error{
+    background: $error;
+  }
+  @at-root #{&}--warning{
+    background: $warning;
+  }
+  @at-root #{&}-button{
+    background: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
