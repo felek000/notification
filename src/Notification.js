@@ -49,7 +49,7 @@ class Noti {
   }
 
   /**
-   *@description Shows notification on document and assign events and position
+   * @description Shows notification on document and assign events and position
    * @param {String} messageText
    * @param {('success' | 'error' | 'warning' )}  messageType
    */
