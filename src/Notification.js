@@ -62,7 +62,7 @@ class Noti {
     this.body.appendChild(el);
     this._applyEventListeners(el);
     this._setPosOnDocument();
-    this._applyAutoHide();
+    this._applyAutoHide(el);
   }
 
   /**
