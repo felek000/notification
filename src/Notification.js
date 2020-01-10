@@ -16,8 +16,8 @@ class Noti {
 
   /**
    * @constructor
-   * @param {('left'|'right')} posX - Pos from top as number
-   * @param {('top'|'bottom')} posY - Pos from right as number
+   * @param {('left'|'right')} posX - Pos from top
+   * @param {('top'|'bottom')} posY - Pos from right
    * @param {number} margin - margin between elements
    * @param {boolean} autoHide - margin between elements
    * @param {number} timeOut - margin between elements
