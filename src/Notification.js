@@ -122,7 +122,6 @@ class Noti {
    * @description update element position in DOM
    * @private
    */
-
   _setPosOnDocument() {
     const notification = this.body.querySelectorAll(".js-notification");
     const notificationArray = Array.from(notification).reverse();
@@ -131,9 +130,9 @@ class Noti {
       notificationArray.forEach((el, index) => {
         heightElements += el.getBoundingClientRect().height + this.margin;
         if (notificationArray[index + 1]) {
-          notificationArray[
-            index + 1
-          ].style.transform = `translateY(${heightElements}px)`;
+          notificationArray[index + 1].style.transform = `translateY(${
+            this.posY !== "bottom" ? "" : "-"
+          }${heightElements}px)`;
         }
       });
       notificationArray[0].style.transform = `translateY(0px)`;
