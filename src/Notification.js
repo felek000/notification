@@ -3,6 +3,7 @@
  * @author prfi
  */
 import "./notification.scss";
+import { optionsDefault } from "./notificationSettings";
 /**
  * @description show notification toast in browser
  */
@@ -13,38 +14,39 @@ class Noti {
   margin;
   autoHide;
   timeOut;
-
+  namespace;
   /**
-   * @constructor
-   * @param {('left'|'right')} posX - Pos from top
-   * @param {('top'|'bottom')} posY - Pos from right
-   * @param {number} margin - margin between elements
-   * @param {boolean} autoHide - margin between elements
-   * @param {number} timeOut - margin between elements
+   * @type optionsDefault
+   * @type {object}
+   * @property {{posX:('left'|'right')}} - pos from top
+   * @property {{posY:('top'|'bottom')}} - pos from right
+   * @property {{margin:number}} - margin between elements
+   * @property {{autoHide:boolean}} - is auto close after timeout
+   * @property {{timeOut:number}} - timeout for auto close
+   * @property {{namespace:string}}  - name space element
    */
-  constructor(
-    posY = `top`,
-    posX = `right`,
-    margin = 5,
-    autoHide = false,
-    timeOut = 1000
-  ) {
+  /**
+   * @type {optionsDefault}
+   */
+  constructor(optionsInc) {
+    const options = { ...optionsDefault, ...optionsInc };
     if (
-      typeof posX != "string" ||
-      typeof posY != "string" ||
-      typeof margin != "number" ||
-      typeof autoHide != "boolean" ||
-      typeof timeOut != "number"
+      typeof options.posX != "string" ||
+      typeof options.posY != "string" ||
+      typeof options.margin != "number" ||
+      typeof options.autoHide != "boolean" ||
+      typeof options.timeOut != "number"
     ) {
       throw new Error(
         `posTop and posRight must be string margin must be type number autoHide bool`
       );
     }
-    this.posX = posX;
-    this.posY = posY;
-    this.margin = margin;
-    this.autoHide = autoHide;
-    this.timeOut = timeOut;
+    this.posX = options.posX;
+    this.posY = options.posY;
+    this.margin = options.margin;
+    this.autoHide = options.autoHide;
+    this.timeOut = options.timeOut;
+    this.namespace = options.namespace;
     this.body = document.querySelector("body");
   }
 
@@ -73,7 +75,7 @@ class Noti {
    * @private
    */
   _createElement(messageText, messageType) {
-    const el = document.createElement("mf-notification");
+    const el = document.createElement(`${this.namespace}-notification`);
     el.classList.add(`js-notification`);
     el.classList.add(`notification`);
     el.classList.add(`notification--${messageType}`);

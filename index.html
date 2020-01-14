@@ -5,12 +5,15 @@
 	<title>Title</title>
 	<link rel="stylesheet" href="dist/notification.css">
 </head>
-<body>
-
+<body style="height: 100vh">
 <script src="dist/notification.js"></script>
 <script>
-    // var n = new Noti('bottom','right',5,false,5000);
-    var n = new Noti();
+    const optionsDefault = {
+        posY: `bottom`,
+        timeOut: 2000
+    };
+    var n = new Noti(optionsDefault);
+    // var n = new Noti();
 	n.showNotification();
 	setTimeout(function () {
 
